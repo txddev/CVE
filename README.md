@@ -16,6 +16,14 @@ Review a script before running it on the system you want to assess. For example:
 bash check-cve-2026-98432-use-after-free-issue.sh
 ```
 
+To download and run the published version directly:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/txddev/CVE/refs/heads/main/check-cve-2026-98432-use-after-free-issue.sh | bash
+```
+
+Piping a download directly to Bash executes it without an opportunity to review it first. Download the file separately if you want to inspect it before running it. The published version may differ from local changes.
+
 The CVE-2026-98432 script is read-only: it does not install updates, refresh package metadata, change settings, or reboot. It may suggest update commands, but does not run them. Package-manager results depend on the locally available metadata. In a container, assess the host kernel on the host itself.
 
 For that script, exit codes are `0` for fixed by package-version evidence, `1` for vulnerable by package-version evidence, and `2` for unknown or advisory-only results. Other scripts may use different conventions; consult each script's documentation.
